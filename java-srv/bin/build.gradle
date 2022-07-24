@@ -1,0 +1,31 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+ext {
+    jaxbVersion = '2.3.3'
+    hibernateVersion = '5.3.7.Final'
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.7'
+  // app logger
+    implementation "log4j:log4j:1.2.17"
+    implementation "org.slf4j:slf4j-api:1.7.5"
+    implementation "org.slf4j:slf4j-log4j12:1.7.5"
+  // database
+    implementation 'org.postgresql:postgresql:42.2.18.jre7'
+  // database - hibernate
+    implementation "org.hibernate:hibernate-core:${hibernateVersion}"
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:${jaxbVersion}"
+		implementation "org.glassfish.jaxb:jaxb-runtime:${jaxbVersion}"
+}
+
+mainClassName = 'example.Main'

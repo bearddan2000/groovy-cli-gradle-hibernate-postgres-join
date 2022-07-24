@@ -1,0 +1,16 @@
+version: '3'
+services:
+  java-srv:
+    build:
+      context: java-srv
+    depends_on:
+      - db
+    links:
+      - "db:db"
+
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_DB=animal
+      - POSTGRES_USER=maria
+      - POSTGRES_HOST_AUTH_METHOD=trust
